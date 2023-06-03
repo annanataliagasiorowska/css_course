@@ -4,3 +4,43 @@ body {
   font-size: 1.5rem;
   font-family: "Roboto", sans-serif;
 }
+
+.block {
+  width: 30vw;
+  height: 30vw;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* before setting float, all elems were block elems, one 
+below the other, after float, text wraps around square */
+.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+/* shift+alt+downarrow - copy the highlighted fragment */
+.right {
+  float: right;
+  margin-left: 1rem;
+}
+
+section {
+  background-color: bisque;
+  border: 1px solid #333;
+  padding: 1rem;
+  /* legacy way to display it correctly */
+  /* overflow: auto; */
+  /* modern way */
+  display: flow-root;
+
+}
+
+/* p { */
+  /* margin applied to p is unvisible as it's counted
+  from the begining of the page, not counting float, which
+  is not inside normal flow, so margin is applied from the left
+  edge... */
+  /* margin-left: 20%;
+} */

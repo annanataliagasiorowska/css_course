@@ -4,3 +4,48 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
 }
+
+.columns {
+  /* column-count: 4;
+  column-width: 250px; */
+  columns: 4 250px;
+  column-rule: 3px solid #333;
+  column-gap: 3rem;
+}
+
+
+/* margin colapsing - not adding top and bottom margin */
+.columns p {
+  margin-top: 0;
+}
+
+.columns h2 {
+  margin-top: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  /* to avoid strange things like division 
+  of the background gray rectangle between 2 columns */
+  break-inside: avoid;
+  /* forces the column break */
+  /* break-before: column; */
+}
+
+.columns .quote {
+  font-size: 3rem;
+  text-align: center;
+  color: #333;
+  column-span: all;
+  /* that doesn't work if we have .quote only specification
+  because .columns p has higher specificity, so will add 
+  .columns before .quote */
+  margin-top: 2rem;
+}
+
+/* we don't wan't to break the author in uncontrolled
+way */
+
+.nowrap { 
+  white-space: nowrap;
+  
+}

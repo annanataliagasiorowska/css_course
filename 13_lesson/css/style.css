@@ -34,49 +34,86 @@ body {
   padding: 1rem;
 }
 
+/* absolute positioning needs a relative parent
+and if it doesn't have an ancestor element that is 
+positioned relative then it takes the initial boundry/box
+which is essentially the browser window 
+if we add position: relative to outer-container it will
+be fixed, it is now absolute to the ancestor with 
+position relative. It takes the closest ancestor
+with position defined to relative. */
 .absolute {
   background-color: #00f;
   position: absolute;
   top: 0;
   left: 0;
+  /* used to hide an element */
+  /* left: -10000px; */
+   /* which one is on top depends on which is before
+in html, though we can manage it throu CSS */
   z-index: 1;
 }
 
+
+/* if we set position: relative 
+it's going to be relative to its parent without setting
+position: relative on the parent element */
 .relative {
-  background-color: #f00;
+  background-color: red;
   position: relative;
   top: 300px;
   left: 100px;
 }
 
+
+/* it stays in a fixed position entire time, even when 
+we scroll */
 .fixed {
   background-color: green;
   position: fixed;
   top: 100px;
 }
 
+
+/* it will stay in its normal flow until it reaches
+the spot defined, 
+when we set top: 0 it reaches the top position, but
+when it reaches the bottom edge of its container, then
+it goes with it, unlike fixed which stays it the 
+same position no matter what */
 .sticky {
-  background-color: #000;
+  background-color: black;
   position: sticky;
   top: 0;
 }
 
-/*  Remember, how to make things disappear! */
 
-/*//////////////////////////*/
+/* Remeber how to make things disappear */
 
-html { scroll-behavior: smooth; }
+/* //////////////////////////////////// */
+
+html {
+  scroll-behavior: smooth;
+}
 
 section {
   height: 100vh;
 }
 
-.blue { background-color: #00f;}
-.red { background-color: #f00;}
-.green { background-color: green;}
+.blue {
+  background-color: #00f;
+}
+
+.red {
+  background-color: #f00;
+}
+
+.green {
+  background-color: green;
+}
 
 header, footer {
-  color: #fff;
+  color: white;
   text-align: center;
   height: 100px;
 }
@@ -87,24 +124,30 @@ header {
   font-size: 5rem;
 }
 
+
+/* if position: fixed, use width: 100% 
+but we also can set position to sticky if
+we want to have it always on the bottom of the page
+and set bottom to 0 */
 footer {
-  background-color: #000;
+  background-color: black;
   position: sticky;
   bottom: 0;
   font-size: 3rem;
 }
 
 a:visited {
-  color: #fff;
+  color: white;
 }
 
 .social {
   background-color: royalblue;
-  color: #fff;
+  color: white;
   font-size: inherit;
   padding: 1rem;
   position: fixed;
   top: 30%;
   left: 0;
+  /* to be always visible/on top */
   z-index: 1;
 }

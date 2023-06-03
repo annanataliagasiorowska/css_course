@@ -1,7 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
 }
 
+
+/* p {
+  background-color: lightgray;
+}
+
+.opposite {
+  display: inline-block;
+  background-color: #333;
+  color: whitesmoke;
+} */
+
+/* we can't apply margin or height on inline elements 
+like above opposite class elem. 
+Inline-block kind of hybrid, doesn't create new line.
+Block level elements stack on top of each other and always 
+create a new line. Automatically have 100% width of whatever
+they are given.
+Inline elements do not stack on top of each other and 
+do not create a new line. Always have the width of their content 
+(if with padding then plus this padding). */
+
+/* second example - with <nav> 
+<ul> is block level element
+<li> themselves are block level elements but
+together inside <ul> are inline elements */
+
+ul {
+  /* display: none completely removes from view */
+  list-style-type: none;
+  padding: 0.5rem;
+  text-align: right;
+  background-color: #000;
+  margin: 0;
+}
+
+li {
+  display: inline-block;
+  /* margin-inline will just apply to margin left and right  */
+  margin-inline: 0.5rem;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover, li a:focus {
+  text-decoration: underline;
+}
