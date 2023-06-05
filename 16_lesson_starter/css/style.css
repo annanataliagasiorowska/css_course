@@ -1,16 +1,119 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
+/* Begin Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+img {
+  /* block elem takes up full width of the page */
+  display: block;
+}
+/* End Reset */
+
+/* Utility Classes */
+.nowrap {
+  white-space: nowrap;
+}
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+/* End Utility Classes */
+
 body {
   font-family: "Nunito", sans-serif;
   min-height: 100vh;
+  background-color: aliceblue;
+  /* background-image: url('../img/bubbles.png'),
+  linear-gradient(to left, steelblue, white);
+  values comes first to bubble image, then to gradient 
+  background in below properties
+  background-repeat: repeat-y, no-repeat;
+  background-position: right center;
+  background-size: 20%, auto; */
 }
 
+.container {
+  background-color: rgb(251, 210, 156);
+  /* always use for background an image that is twice
+  as big as you plan the size of display screen */
+  background-image: url('../img/map-2176x1451.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+}
+
+.hero {
+  border-bottom: 2px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+
+  background-color: hsla(0, 0%, 0%, 0.28);
+  
+}
+
+.h1 {
+  font-size: 500%;
+  color: aliceblue;
+  text-shadow: 2px 2px 5px #000;
+  /* background-color: hsla(0, 0%, 0%, 0.4);
+  padding: 0.25rem;
+  border-radius: 10px;*/
+
+} 
+
+.profile-pic-figure {
+  width: 35%;
+}
+
+.profile-pic-figure img {
+  width: 100%;
+  height: auto;
+  min-width: 100px;
+  border: 5px double gray;
+  border-radius: 50%;
+}
+
+.example {
+  margin-top: 1rem;
+  padding-left: 20px;
+  border: 1px solid red;
+}
+
+.example img {
+  width: 25%;
+  height: auto;
+}
+
+.clip {
+  font-weight: 800;
+  font-size: 18rem;
+  text-align: center;
+  background-image: url('../img/scenic-2200x1331.png');
+  background-size: 100%;
+  text-transform: uppercase;
+  /* check on caniuseit - to use in edge, chrome add -webkit
+  but in firefox without, so have to have both in code */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: hsla(0, 0%, 0%, 0.2);
+}
+
+/* images are not block line elements, they are inline
+it has space on the bottom between red line and image
+as it was originally planed as paragraph and 
+letters with long bottom (j, g, p, y...) had to have
+space for their tails... 
+how to remove this space?
+img {display: block; */
 
 
 
