@@ -32,12 +32,27 @@ body {
   flex-direction: column;
 }
 
+/* we can write it like this
+:is(header, footer)
+and the rest of the below code
+the difference will be in specificity, if we add
+some element which has a higher specificity, 
+all elements in parenthesis will have this higher
+specificity (which I can seen when hover over selector)
+if we add
+:is(header, footer, .card) specificity will change
+from (0 0 1) to (0 1 0) and the I couldn't override 
+eg.color in selector header... 
+similar selector pseudo class :where(header, footer, .card)
+specificity is always (0 0 0) */
+
 header,
 footer {
   position: sticky;
   background-color: #1e293b;
   color: whitesmoke;
   text-align: center;
+  z-index: 1;
 }
 
 header {
@@ -53,14 +68,28 @@ nav {
   justify-content: space-evenly;
 }
 
-nav a,
+nav a:link,
 nav a:visited {
   color: #000;
 }
 
+/* the same as above */
+/* nav a:any-link {
+  color: black;
+} */
+
 nav a:hover,
 nav a:focus {
   color: hsla(0, 0%, 20%, 0.6);
+}
+
+/* the same as above */
+/* nav :is(a:hover, a:focus) {
+  color: hsla(0, 0%, 20%, 0.6);
+} */
+
+nav a:active {
+  color: red;
 }
 
 main {
@@ -89,6 +118,10 @@ footer {
   align-items: center;
 }
 
+.card:target {
+  border: 2px solid rebeccapurple;
+}
+
 .card figure {
   display: flex;
   flex-flow: column nowrap;
@@ -98,6 +131,55 @@ footer {
   border: 5px double #333;
   border-radius: 50%;
 }
+
+/* selecting any image with alt attribute, so we can 
+ base our selectors on attributes */
+/* .card img[alt] {
+  border: 10px solid red;
+} */
+/* choosing img without alt attribute eg. to check
+if we didn't forget to add somewhere */
+/* .card img:not[alt] {
+  border: 10px solid red;
+} */
+
+
+/* nth-child selector is based on the original order
+within html code */
+.card:nth-child(2) {
+  background-color: papayawhip;
+}
+
+.card figcaption::after {
+  content: 	'✨';
+  display: block;
+}
+
+.card figcaption::first-line {
+  font-size: 3rem;
+}
+
+/* to add absolute position in children elements */
+.card p {
+  position: relative;
+}
+
+.card p::before {
+  content: open-quote;
+  font-size: 3em;
+  position: absolute;
+  top: -0.25em;
+  left: -0.5em;
+}
+.card p::after {
+  content: close-quote;
+  font-size: 3em;
+  position: absolute;
+  top: -0.25em;
+  border-right-style: -0.5em;
+}
+
+
 
 .card figcaption {
   font-weight: bolder;
