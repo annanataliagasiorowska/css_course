@@ -33,3 +33,81 @@ div {
   display: grid;
   place-content: center;
 }
+
+div:first-child {
+  background-color: dodgerblue;
+  /* moves 50% of the width of the element itself */
+  /* transform: translateX(50%); */
+  /* rotatex - rotates top to bottom, at 90deg dissapears */
+  /* transform: rotateX(45deg); */
+  /* transform: scaleX(120%); */
+  /* transform: skewX(-10deg); */
+}
+
+div:nth-child(2) {
+  background-color: yellow;
+  /* transform: translateY(-2rem); */
+  /* rotatey - rotates left to rigth */
+  /* transform: rotateY(45deg); */
+  /* transform: scaleY(120%); */
+  /* transform: skewY(10deg); */
+}
+
+div:last-child {
+  background-color: limegreen;
+  /* both x and y */
+  /* transform: translate(100%, -2rem); */
+  /* transform: rotate(135deg); */
+  /* transform: scale(50%); */
+  /* transform: skew(-10deg, -10deg); */
+}
+
+/* translatex moves things left and right,
+transformy moves things up and down */
+
+div:hover {
+  background-color: midnightblue;
+  /* transition-property: background-color, transform; */
+  /* time of the transition */
+  /* transition-duration: 2s, 3s; */
+  /* transition-timing-function: ease; */
+  /* time before transition */
+  /* transition-delay: 0.5s; */
+  /* shortcut for 4 above */
+  transition: all 2s linear 0.5s;
+}
+
+div:last-child:hover {
+  transform: rotate(180deg);
+}
+
+.animate {
+  /* animation-name: slide;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
+  animation-fill-mode: forwards; */
+  /* shorthand */
+  animation: 5s ease-in-out 1s 2 normal forwards slide;
+}
+
+
+/* @keyframes identifier where identifier is animation
+name */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(300px) rotate(180deg);
+  }
+  66% {
+    transform: translateX(-300px) rotate(-180deg);
+  }
+  100% {
+    transform: translateX(0);
+    background-color: rebeccapurple;
+  }
+}
